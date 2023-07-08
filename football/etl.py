@@ -50,10 +50,6 @@ for i in xml_data:
         "INSERT INTO PopularPostInfo (title, user, comments, subreddit, content_link, time) VALUES (?, ?, ?, ?, ?, ?)",
         (title, user, comments, subreddit, content_link, time))
 
-# Commit the changes and close the connection
-conn.commit()
-conn.close()
-
 # Connect to the SQLite database
 conn = sqlite3.connect('database.db')
 c = conn.cursor()
@@ -69,6 +65,8 @@ print("Number of rows in the table: ", len(rows))
 for row in rows:
     print(row)
 
+# Commit the changes and close the connection
+conn.commit()
 conn.close()
 
 
